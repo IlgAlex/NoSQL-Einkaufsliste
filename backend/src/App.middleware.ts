@@ -1,9 +1,10 @@
+import express from 'express';
 import { DatabaseQueries } from './database/databaseQueries.js';
 
 
 export class AppMiddleware {
 
-    static async test(req, res) {
+    static async test(req: express.Request, res: express.Response): Promise<express.Response> {
         console.log('testing');
         try{
             return res.status(200).end(JSON.stringify(await DatabaseQueries.test()));

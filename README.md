@@ -1,2 +1,7 @@
 # NoSQL-Einkaufsliste
-nnnn
+
+## Starten - Frontend
+ng serve
+
+## Starten - Backend
+npm run start

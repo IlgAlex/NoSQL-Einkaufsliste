@@ -1,6 +1,6 @@
 export class AppModel {
 
-    static async test() {
+    static async test(): Promise<boolean> {
         try {
             return true; 
         } catch (err) {

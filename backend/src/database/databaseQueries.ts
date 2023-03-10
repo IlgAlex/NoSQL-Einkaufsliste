@@ -3,7 +3,7 @@ import { store } from "./documentStore.js";
 
 export class DatabaseQueries {
 
-    static async test() {
+    static async test(): Promise<boolean> {
         const entry = {
             name: "apples",
             count: 5,
