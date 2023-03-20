@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiServiceService } from '../_services/api-service.service';
 import swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -79,6 +80,5 @@ export class HomeComponent {
       timer: 3000
     });
   }
-
 
 }
