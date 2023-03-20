@@ -38,4 +38,30 @@ export class ApiServiceService {
     );
   }
 
+  updateElement(id: string, status: string, cb: (data: any) => void) {
+    const params = new HttpParams().set('status', status);
+
+    return this.http.put(`${this.basePath}/elements/${id}`, params, {withCredentials: true}).subscribe(
+      (data) => {
+      cb(data);
+    },
+    (error: HttpErrorResponse) => {
+      console.error('Error: ', error.status, ' ', error.statusText);
+      cb(error);
+    }
+    );
+  }
+
+  deleteElement(id: string, cb: (data: any) => void) {
+    return this.http.delete(`${this.basePath}/elements/${id}`, {withCredentials: true}).subscribe(
+      (data) => {
+      cb(data);
+    },
+    (error: HttpErrorResponse) => {
+      console.error('Error: ', error.status, ' ', error.statusText);
+      cb(error);
+    }
+    );
+  }
+
 }

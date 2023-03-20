@@ -14,5 +14,5 @@ app.use('/api', router);
 router.use('/app', AppRouter);
 
 app.listen(8070, () => {
-    console.log(`Server running...`);      
+    console.log(`Server running...`);   
 })

@@ -10,9 +10,25 @@ export class AppModel {
         }
     }
 
-    static async createElement(body: any): Promise<any> {
+    static async createElement(collection: string, name: string): Promise<any> {
         try {
-            return await DatabaseQueries.createElement(body);
+            return await DatabaseQueries.createElement(collection, name);
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+
+    static async updateElement(id: string, status: string): Promise<any> {
+        try {
+            return await DatabaseQueries.updateElement(id, status);
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+
+    static async deleteElement(id: string): Promise<any> {
+        try {
+            return await DatabaseQueries.deleteElement(id);
         } catch (err) {
             throw new Error(err);
         }
