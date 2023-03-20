@@ -1,20 +1,31 @@
-import { DocumentStore } from "ravendb";
 import { store } from "./documentStore";
 
 export class DatabaseQueries {
 
-    static async test(): Promise<boolean> {
-        const entry = {
-            name: "apples",
-            count: 5,
-            price: 1.99,
-            created: new Date()
-        };
+    static async getElements(): Promise<any> {
         try {
             const session = store.openSession();
-            await session.store(entry, "items/1-A");
+            const elements = await session.query({ collection: "list" }).orderByDescending('erstellt').all();
+            return elements;
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+
+    static async createElement(body: any): Promise<any> {
+        try {
+            const session = store.openSession();
+            const element = {
+                "Name": body.name,
+                "@metadata": {
+                    "@collection": body.collection
+                },
+                "status": "open",
+                "erstellt": new Date()
+            };
+            await session.store(element);
             await session.saveChanges();
-            return true;
+            return element;
         } catch (err) {
             throw new Error(err);
         }

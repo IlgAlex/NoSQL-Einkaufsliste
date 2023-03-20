@@ -4,7 +4,10 @@ import { AppMiddleware } from './App.middleware';
 
 const router = express.Router();
 
-router.get('/test', AppMiddleware.test);
+
+router.get('/elements', AppMiddleware.getElements);
+
+router.post('/elements', AppMiddleware.createElement);
 
 
 export { router as AppRouter };

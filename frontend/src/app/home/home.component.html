@@ -1,36 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <!-- <title>Einkaufsliste</title> -->
+<div id="Content-Wrapper" class="container d-flex justify-content-center pt-5 pb-5 mb-5">
 
+    <div id="Content" class="w-50">
 
-    </head>
-
-    <body>
-        <div id="content">
-        <h1>Einkaufsliste</h1>
-        <br>
-            <div id="addElements">
-                <form>
-                    <input type="text" name="newElement" placeholder="Neues Element hinzufügen">
-                    <input type="submit" value="submit">
-                </form>
-                
-            </div>
-            <br>
-            <div id="list">
-                <ul>
-                    <!-- <li> -->
-                        <div><label><input type="checkbox">Das ist ein Test</label></div>
-                        <!-- <div><label id="listElement">Element</label></div> -->
-                    <!-- </li> -->
-                </ul>
-                
-            </div>
-
+        <!-- Neues Element anlegen -->
+        <div class="headline d-flex align-items-center gap-3">
+            <h3>Element anlegen</h3>
         </div>
-    </body>
-</html>
+        <div class="newElement d-flex justify-content-between gap-2 mt-3">
+            <input id="InputNewElement" type="text" class="form-control fs-5" placeholder="z.B. Haferflocken" (input)="handleInput($event, 'name')">
+            <button (click)="createElement()" class="btn border px-3" style="background:#0d6efd; color:#fff;"><i class="bi bi-plus-lg"></i></button>
+        </div>
 
-    <!-- <p>home works!</p> -->
+        <hr class="mt-5 mb-5" style="color:#999999;">
+
+        <!-- Offene Elemente -->
+        <div class="headline d-flex align-items-center gap-3">
+            <h3>Zu kaufen</h3>
+            <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
+        </div>
+        <ul *ngFor="let element of elements_open" class="list-group mt-3">
+            <li class="list-group-item d-flex align-items-center gap-3 py-3 px-4">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" style="transform: scale(1.5);">
+              <label class="form-check-label fs-5" for="firstCheckbox">{{element.Name}}</label>
+            </li>
+        </ul>
+
+        <!-- Abgeschlossene Elemente -->
+        <div class="headline d-flex align-items-center gap-3 mt-5">
+            <h3>Abgeschlossen</h3>
+            <h4><span class="badge bg-light text-secondary">{{elements_closed.length}}</span></h4>
+        </div>
+        <ul *ngFor="let element of elements_closed" class="list-group mt-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4 element-closed">
+                <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" style="transform: scale(1.5);" checked>
+                    <label class="form-check-label fs-5" for="firstCheckbox">{{element.Name}}</label>
+                </div>
+                <i class="bi bi-trash3 text-danger"></i>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+.element-closed {
+    background: #f1f1f1;
+    color: #868686;
+}
+
+.element-closed i {
+    cursor: pointer;
+}
+
+::placeholder {
+    opacity: 0.5; 
+}
