@@ -1,5 +1,5 @@
 import express from 'express';
-import { DatabaseQueries } from './database/databaseQueries.js';
+import { DatabaseQueries } from './database/databaseQueries';
 
 
 export class AppMiddleware {

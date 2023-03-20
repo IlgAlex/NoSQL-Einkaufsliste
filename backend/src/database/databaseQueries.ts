@@ -1,5 +1,5 @@
 import { DocumentStore } from "ravendb";
-import { store } from "./documentStore.js";
+import { store } from "./documentStore";
 
 export class DatabaseQueries {
 

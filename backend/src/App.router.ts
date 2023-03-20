@@ -1,5 +1,5 @@
 import express from 'express';
-import { AppMiddleware } from './App.middleware.js';
+import { AppMiddleware } from './App.middleware';
 
 
 const router = express.Router();
