@@ -46,7 +46,7 @@
                     <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" style="transform: scale(1.5);" checked (change)="updateElement(element.id, $event)">
                     <div class="d-flex flex-column">
                         <label class="form-check-label fs-5" for="firstCheckbox">{{element.Name}}</label>
-                        <span class="opacity-50">Erledit am: {{element.last_change}}</span>
+                        <span class="opacity-50">Erledigt am: {{element.last_change}}</span>
                     </div>
                 </div>
                 <i (click)="deleteElement(element.id)" class="bi bi-trash3 text-danger"></i>
