@@ -19,9 +19,12 @@
             <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
         </div>
         <ul *ngFor="let element of elements_open" class="list-group mt-3">
-            <li class="list-group-item d-flex align-items-center gap-3 py-3 px-4">
-              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" style="transform: scale(1.5);" (change)="updateElement(element.id, $event)">
-              <label class="form-check-label fs-5" for="firstCheckbox">{{element.Name}}</label>
+            <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4">
+                <div class="d-flex align-items-center gap-3">
+                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" style="transform: scale(1.5);" (change)="updateElement(element.id, $event)">
+                    <label class="form-check-label fs-5" for="firstCheckbox">{{element.Name}}</label>
+                </div>
+                <i (click)="deleteElement(element.id)" class="bi bi-trash3 text-danger" style="cursor:pointer;"></i>
             </li>
         </ul>
         <div *ngIf="elements_open.length === 0" class="alert alert-light mt-3" role="alert">Keine Elemente vorhanden.</div> <!-- Info, wenn keine Elemente existieren -->

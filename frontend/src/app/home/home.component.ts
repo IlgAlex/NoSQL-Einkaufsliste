@@ -22,7 +22,6 @@ export class HomeComponent {
   name: string | undefined;
 
   ngOnInit(): void {
-    // const changes = this.changesApi.watchChanges(); // Changes-API starten und Änderungen abonnieren (siehe changes-api.service.ts)
     this.getElements();
   }
 
