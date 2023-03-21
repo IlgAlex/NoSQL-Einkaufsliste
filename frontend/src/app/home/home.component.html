@@ -19,7 +19,7 @@
                 <h3>Einkaufen</h3>
                 <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
             </div>
-            <span (click)="updateAllOpenElements()" class="text-primary" style="cursor: pointer;">Alle Artikel abhaken</span>
+            <span (click)="updateAllOpenElements()" class="text-primary" style="cursor: pointer;">Alle eingekauften Artikel abhaken</span>
         </div>
         <ul *ngFor="let element of elements_open" class="list-group mt-3">
             <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4">
@@ -38,7 +38,7 @@
                 <h3>Gekauft</h3>
                 <h4><span class="badge bg-light text-secondary">{{elements_closed.length}}</span></h4>
             </div>
-            <span (click)="deleteAllClosedElements()" class="text-danger" style="cursor: pointer;">Alle Artikel löschen</span>
+            <span (click)="deleteAllClosedElements()" class="text-danger" style="cursor: pointer;">Alle gekauften Artikel löschen</span>
         </div>
         <ul *ngFor="let element of elements_closed" class="list-group mt-3">
             <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4 element-closed">
