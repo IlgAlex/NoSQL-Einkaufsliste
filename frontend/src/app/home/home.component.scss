@@ -10,3 +10,17 @@
 ::placeholder {
     opacity: 0.5; 
 }
+
+
+@media only screen and (max-width: 1023px) {
+    #Content {
+        width: 80% !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .headline {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+}
