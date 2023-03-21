@@ -22,7 +22,6 @@ export class HomeComponent {
   name: string | undefined;
 
   ngOnInit(): void {
-    // const changes = this.changesApi.watchChanges(); // Changes-API starten und Änderungen abonnieren (siehe changes-api.service.ts)
     this.getElements();
   }
 
@@ -33,7 +32,7 @@ export class HomeComponent {
     }
   }
 
-  getElements(): void {
+  async getElements(): Promise<void> {
     this.apiService.getElements((data) => {
       if(data instanceof HttpErrorResponse) {
         console.error('Error: ', data.status, ' ', data.statusText);
@@ -54,7 +53,7 @@ export class HomeComponent {
 
   createElement(): void {
     if(this.name !== "" && this.name !== undefined) {
-      this.apiService.createElement(this.name, 'list', (data) => {
+      this.apiService.createElement(this.name, 'list', async (data) => {
         if(data instanceof HttpErrorResponse) {
           console.error('Error: ', data.status, ' ', data.statusText);
           this.httpError = data;
@@ -63,14 +62,13 @@ export class HomeComponent {
           this.name = '';
           const input = document.getElementById('InputNewElement') as HTMLInputElement;
           input.value = '';
-          this.getElements();
+          await this.getElements();
         }
       });
     }
   }
 
   updateElement(id: string, event: any): void {
-    console.log(id, event);
     let status = event.target.checked ? 'closed' : 'open';
     this.apiService.updateElement(id, status, (data) => {
       if(data instanceof HttpErrorResponse) {
@@ -81,6 +79,20 @@ export class HomeComponent {
         this.getElements();
       }
     });
+  }
+
+  updateAllOpenElements(): void {
+    for(let i = 0; i < this.elements_open.length; i++) {
+      this.apiService.updateElement(this.elements_open[i].id, "closed", (data) => {
+        if(data instanceof HttpErrorResponse) {
+          console.error('Error: ', data.status, ' ', data.statusText);
+          this.httpError = data;
+          return;
+        } else {
+          this.getElements();
+        }
+      });
+    }
   }
 
   deleteElement(id: string): void {
@@ -94,6 +106,21 @@ export class HomeComponent {
       }
     });
   }
+
+  deleteAllClosedElements(): void {
+    for(let i = 0; i < this.elements_closed.length; i++) {
+      this.apiService.deleteElement(this.elements_closed[i].id, (data) => {
+        if(data instanceof HttpErrorResponse) {
+          console.error('Error: ', data.status, ' ', data.statusText);
+          this.httpError = data;
+          return;
+        } else {
+          this.getElements();
+        }
+      });
+    }
+  }
+
 
   formatDate(date: string): string {
     const newDate = new Date(date);
