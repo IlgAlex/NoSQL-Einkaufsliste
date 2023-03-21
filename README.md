@@ -15,7 +15,7 @@ ausführliche Anleitung zu installlation:
 
 ## Database anlegen
 Database mit dem Namen 'Einkaufszettel-DB' anlegen:
---> Database --> auf "New database" klicken --> Name eingeben: Einkaufszettel-DB --> auf "Create" klicken
+--> Databases --> auf "New database" klicken --> Name eingeben: Einkaufszettel-DB --> auf "Create" klicken
 
 Beispieldaten in Database importieren (Voraussetzung: leere Database vorhanden):
 -- in Database "Einkaufszettel-DB" gehen --> Tasks --> Import Data --> Datei auswählen mit Klick auf "Browse" --> auf "Import Database" klicken
