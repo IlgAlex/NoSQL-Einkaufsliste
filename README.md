@@ -6,7 +6,7 @@ ng serve
 ## Starten - Backend
 npm run start
 
-## install RavenDB
+## RavenDB installieren
 unter https://ravendb.net/download die NoSQL Datenbank herunterladen und installieren
 
 ausführliche Anleitung zu installlation:
