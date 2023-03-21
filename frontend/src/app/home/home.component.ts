@@ -32,7 +32,7 @@ export class HomeComponent {
     }
   }
 
-  getElements(): void {
+  async getElements(): Promise<void> {
     this.apiService.getElements((data) => {
       if(data instanceof HttpErrorResponse) {
         console.error('Error: ', data.status, ' ', data.statusText);
@@ -53,7 +53,7 @@ export class HomeComponent {
 
   createElement(): void {
     if(this.name !== "" && this.name !== undefined) {
-      this.apiService.createElement(this.name, 'list', (data) => {
+      this.apiService.createElement(this.name, 'list', async (data) => {
         if(data instanceof HttpErrorResponse) {
           console.error('Error: ', data.status, ' ', data.statusText);
           this.httpError = data;
@@ -62,7 +62,7 @@ export class HomeComponent {
           this.name = '';
           const input = document.getElementById('InputNewElement') as HTMLInputElement;
           input.value = '';
-          this.getElements();
+          await this.getElements();
         }
       });
     }
