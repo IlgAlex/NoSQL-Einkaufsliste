@@ -14,9 +14,12 @@
         <hr class="mt-5 mb-5" style="color:#999999;">
 
         <!-- Offene Elemente -->
-        <div class="headline d-flex align-items-center gap-3">
-            <h3>Einkaufen</h3>
-            <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
+        <div class="headline d-flex align-items-center justify-content-between">
+            <div class="d-flex gap-3">
+                <h3>Einkaufen</h3>
+                <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
+            </div>
+            <span (click)="updateAllOpenElements()" class="text-primary" style="cursor: pointer;">Alle Artikel abhaken</span>
         </div>
         <ul *ngFor="let element of elements_open" class="list-group mt-3">
             <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4">
@@ -30,9 +33,12 @@
         <div *ngIf="elements_open.length === 0" class="alert alert-light mt-3" role="alert">Keine Elemente vorhanden.</div> <!-- Info, wenn keine Elemente existieren -->
 
         <!-- Abgeschlossene Elemente -->
-        <div class="headline d-flex align-items-center gap-3 mt-5">
-            <h3>Gekauft</h3>
-            <h4><span class="badge bg-light text-secondary">{{elements_closed.length}}</span></h4>
+        <div class="headline d-flex align-items-center justify-content-between mt-5">
+            <div class="d-flex gap-3">
+                <h3>Gekauft</h3>
+                <h4><span class="badge bg-light text-secondary">{{elements_closed.length}}</span></h4>
+            </div>
+            <span (click)="deleteAllClosedElements()" class="text-danger" style="cursor: pointer;">Alle Artikel löschen</span>
         </div>
         <ul *ngFor="let element of elements_closed" class="list-group mt-3">
             <li class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3 px-4 element-closed">

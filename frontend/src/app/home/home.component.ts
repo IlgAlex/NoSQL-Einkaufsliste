@@ -69,7 +69,6 @@ export class HomeComponent {
   }
 
   updateElement(id: string, event: any): void {
-    console.log(id, event);
     let status = event.target.checked ? 'closed' : 'open';
     this.apiService.updateElement(id, status, (data) => {
       if(data instanceof HttpErrorResponse) {
@@ -80,6 +79,20 @@ export class HomeComponent {
         this.getElements();
       }
     });
+  }
+
+  updateAllOpenElements(): void {
+    for(let i = 0; i < this.elements_open.length; i++) {
+      this.apiService.updateElement(this.elements_open[i].id, "closed", (data) => {
+        if(data instanceof HttpErrorResponse) {
+          console.error('Error: ', data.status, ' ', data.statusText);
+          this.httpError = data;
+          return;
+        } else {
+          this.getElements();
+        }
+      });
+    }
   }
 
   deleteElement(id: string): void {
@@ -93,6 +106,21 @@ export class HomeComponent {
       }
     });
   }
+
+  deleteAllClosedElements(): void {
+    for(let i = 0; i < this.elements_closed.length; i++) {
+      this.apiService.deleteElement(this.elements_closed[i].id, (data) => {
+        if(data instanceof HttpErrorResponse) {
+          console.error('Error: ', data.status, ' ', data.statusText);
+          this.httpError = data;
+          return;
+        } else {
+          this.getElements();
+        }
+      });
+    }
+  }
+
 
   formatDate(date: string): string {
     const newDate = new Date(date);
