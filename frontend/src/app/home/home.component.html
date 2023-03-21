@@ -4,7 +4,7 @@
 
         <!-- Neues Element anlegen -->
         <div class="headline d-flex align-items-center gap-3">
-            <h3>Element anlegen</h3>
+            <h3>Artikel hinzufügen</h3>
         </div>
         <div class="newElement d-flex justify-content-between gap-2 mt-3">
             <input id="InputNewElement" type="text" class="form-control fs-5" placeholder="z.B. Haferflocken" (input)="handleInput($event, 'name')" (keydown.enter)="createElement()">
@@ -15,7 +15,7 @@
 
         <!-- Offene Elemente -->
         <div class="headline d-flex align-items-center gap-3">
-            <h3>Zu erledigen</h3>
+            <h3>Einkaufen</h3>
             <h4><span class="badge bg-light text-secondary">{{elements_open.length}}</span></h4>
         </div>
         <ul *ngFor="let element of elements_open" class="list-group mt-3">
@@ -31,7 +31,7 @@
 
         <!-- Abgeschlossene Elemente -->
         <div class="headline d-flex align-items-center gap-3 mt-5">
-            <h3>Erledigt</h3>
+            <h3>Gekauft</h3>
             <h4><span class="badge bg-light text-secondary">{{elements_closed.length}}</span></h4>
         </div>
         <ul *ngFor="let element of elements_closed" class="list-group mt-3">
