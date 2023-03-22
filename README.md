@@ -17,9 +17,12 @@ Oder Installation über Docker:
 https://hub.docker.com/r/ravendb/ravendb/
 
 
-## Database anlegen
+## Database anlegen (Anleitung in Doku)
 Database mit dem Namen 'Einkaufszettel-DB' anlegen:
 --> Databases --> auf "New database" klicken --> Name eingeben: 'Einkaufszettel-DB' --> auf "Create" klicken
+
+Beispieldaten in Datei "Einkaufszettel-DB.ravendbdump":
+In GitHub-Dateien --> im Ordner RavenDB-EInkaufszettel
 
 Beispieldaten in Database importieren (Voraussetzung: leere Database vorhanden):
 --> in Database "Einkaufszettel-DB" gehen --> Tasks --> Import Data --> Datei auswählen mit Klick auf "Browse" --> auf "Import Database" klicken
