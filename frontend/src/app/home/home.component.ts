@@ -2,7 +2,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from '../_services/api-service.service';
-import { ChangesApiService } from '../_services/changes-api.service';
 
 
 @Component({
